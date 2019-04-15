@@ -1,0 +1,29 @@
+{
+  "name": "virtual-dom-realization",
+  "version": "1.0.0",
+  "description": "virtual dom 的一个实现",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amnhh/virtual-dom-realization.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amnhh/virtual-dom-realization/issues"
+  },
+  "homepage": "https://github.com/amnhh/virtual-dom-realization#readme",
+  "devDependencies": {
+    "ava": "^1.4.1",
+    "jsdom": "^14.0.0"
+  },
+  "ava": {
+    "files": [
+      "test/*.spec.js"
+    ]
+  }
+}
