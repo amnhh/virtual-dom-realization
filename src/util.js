@@ -19,6 +19,22 @@ module.exports = {
     },
 
     /**
+     * 是否是对象
+     */
+
+    isObject : function (val) {
+        return this.type(val) ==== 'Object'
+    },
+
+    /**
+     * 是否是一个空对象
+     */
+
+    isEmptyObject : function (val) {
+        return this.isObject(val) && Object.keys(val).length === 0
+    },
+
+    /**
      * 获取 type
      */
 
@@ -41,5 +57,13 @@ module.exports = {
 
     isTextNode : function (node) {
         return node && node.nodeName === '#text' && node.nodeType === 3
+    },
+
+    /**
+     * 获取入参的 prototype
+     */
+
+    getPrototype : function (obj) {
+        return Object.getPrototypeOf(obj)
     }
 }

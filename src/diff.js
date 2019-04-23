@@ -1,4 +1,5 @@
 const VPatch = require('./patch')
+const propsDiff = require('./diff/props')
 const _ = require('./util')
 
 /**
@@ -37,7 +38,7 @@ function diffExecute (left, right, idx, patch) {
         (left.key === right.key  && left.tagName === right.tagName)
     ) {
         // props diff
-        let propsDiffResult = propsDIff(left.properties, right.properties)
+        let propsDiffResult = propsDiff(left.properties, right.properties)
         // children diff
     } else {
         // 否则完全重建 + 替换 patch replace
@@ -48,10 +49,3 @@ function diffExecute (left, right, idx, patch) {
         patch[idx] = currentPatchs
     }
 }
-
-/**
- *
- * @param left
- * @param right
- */
-function propsDiff (left, right) {}
