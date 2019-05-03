@@ -30,7 +30,7 @@ function diffExecute (left, right, idx, patch) {
     // 如果 target 为 null
     if (right == null) {
         currentPatchs.push(VPatch.REMOVE, left, right)
-        // 连个都是 text node, 则 patch TEXT
+        // 两个都是 text node, 则 patch TEXT
     } else if (_.isTextNode(left) && _.isTextNode(right)) {
         currentPatchs.push(VPatch.TEXT, left, right)
         // 左右都是 VNode，且 key，tagName 都相同，才会进入到 props diff、children diff 的阶段
@@ -46,6 +46,7 @@ function diffExecute (left, right, idx, patch) {
             currentPatchs.push(VPatch.PROPS, left, propsDiffResult)
         }
         // children diff
+        childrenDiff(left, right, currentPatchs, patch, idx)
     } else {
         // 否则完全重建 + 替换 patch replace
         currentPatchs.push(VPatch.REPLACE, left, right)
