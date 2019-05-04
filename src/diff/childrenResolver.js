@@ -12,9 +12,11 @@ module.exports = function childrenResolver (children) {
     for (let i = 0; i < children.length; i ++) {
         let child = children[i]
         if (child.key) {
+            // keysMap 里存储的是，这个 key 的元素，对应的节点在 children 中存储的位置
             keysMap[child.key] = i
         } else {
-            freeList.push(child)
+            // freeList 中存储的也是索引
+            freeList.push(i)
         }
     }
 
